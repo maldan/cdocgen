@@ -1,0 +1,3 @@
+[submodule "osoyanlib"]
+	path = osoyanlib
+	url = git@github.com:maldan/osoyanlib.git
