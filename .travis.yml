@@ -1,0 +1,19 @@
+dist: trusty
+sudo: false
+
+language: c
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+env:
+  - TARGET_CPU=x86 BUILD_CONFIGURATION=DEBUG
+
+script:
+  - mkdir build
+  - cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
+  - cmake --build .
