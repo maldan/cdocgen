@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>%s</style>
+    <script>%s</script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" :placeholder="`Search through ${totalFunctionAmount()} functions`" @keyup="search($event)">
+        <div v-for="item in filterList">
+            <header-file v-bind:item="item"></header-file>
+        </div>
+    </div>
+    <script>let info = [%s]</script>
+    <script>%s</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+body {
+    background: #e3e3e3;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+input {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 6px;
+    border: 0;
+}
+
+h1 {
+    display: flex;
+}
+
+h1::after {
+    content: ' ';
+    flex-grow: 1;
+    height: 1px;
+    margin-top: 18px;
+    margin-left: 1rem;
+    background: #e8e8e8;
+}
+
+h2 {
+    display: flex;
+}
+
+h2::after {
+    content: ' ';
+    flex-grow: 1;
+    height: 1px;
+    margin-top: 16px;
+    margin-left: 1rem;
+    background: #ffdcdc;
+}
+
+h3 {
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 15px;
+}
+
+table td {
+    border: 1px solid #d4d4d4;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/*.defined {
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+}*/
+
+.function-container {
+    padding: 10px 20px;
+    border: 1px solid #dadada;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.item-macros {
+    font-style: italic;
+    color: #9d8608;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.item-var {
+    font-style: italic;
+    color: #e34a7f;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.item-type {
+    font-style: italic;
+    color: #0070a3;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.item-number {
+    color: #f84398;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.item-function {
+    color: #333333;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.item-string {
+    color: #11a66a;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.item-area {
+    color: #2b2b2b;
+    background: #efefef;
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
+.description {
+    line-height: 32px;
+}
+
+.description p {
+    margin: 0;
+}
