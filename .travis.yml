@@ -10,7 +10,7 @@ compiler:
   - gcc
 
 env:
-  - TARGET_CPU=x86 BUILD_CONFIGURATION=DEBUG
+  - TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
 
 script:
   - mkdir build
