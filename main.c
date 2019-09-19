@@ -197,11 +197,11 @@ int main(int argc, char **argv) {
     struct FileInfo *vueJs;
     struct FileInfo *mainHtml;
 
-    if (access( "/var/lib/cdocgen/main.html", F_OK) != -1) {
-        styleCss = file_get_contents("/var/lib/cdocgen/style.css");
-        mainJs = file_get_contents("/var/lib/cdocgen/main.js");
-        vueJs = file_get_contents("/var/lib/cdocgen/vue.js");
-        mainHtml = file_get_contents("/var/lib/cdocgen/main.html");
+    if (access( "/var/lib/cdocgen/resource/main.html", F_OK) != -1) {
+        styleCss = file_get_contents("/var/lib/cdocgen/resource/style.css");
+        mainJs = file_get_contents("/var/lib/cdocgen/resource/main.js");
+        vueJs = file_get_contents("/var/lib/cdocgen/resource/vue.js");
+        mainHtml = file_get_contents("/var/lib/cdocgen/resource/main.html");
     } else {
         styleCss = file_get_contents("../resource/style.css");
         mainJs = file_get_contents("../resource/main.js");
