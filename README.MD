@@ -22,6 +22,8 @@ chmod 0777 install.sh && ./install.sh
 ./cdocgen --include ../osoyanlib/include/ --out final.doc.html
 ```
 
-Where --include is folder with headers files. --out is destination for generated document, by default cdocgen generate document in doc.html.
+Where 
+* --include is folder with headers files.
+* --out is destination for generated document, by default cdocgen generate document in doc.html.
 
-By now program works with only header files.
+By now program works only with header files. Here is example of comments https://github.com/maldan/osoyanlib, watch include folder. The program works only with this type of comments. You can comment file or functions. You must use exactly format of comment with spaces and etc. If at least one space is wrong the program will crash.
