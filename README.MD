@@ -14,7 +14,7 @@ This is generated document with documentation from comments of header files.
 ```
 git clone --recurse-submodules https://github.com/maldan/cdocgen.git
 cd cdocgen
-chmod 0777 install.sh && ./install.sh
+chmod 0777 install.sh && sudo ./install.sh
 ```
 
 # Usage

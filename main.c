@@ -192,10 +192,26 @@ int main(int argc, char **argv) {
     NEW_STRING(documentData);
     NEW_STRING(finalData);
 
-    NEW_FILE_INFO(styleCss, "../resource/style.css");
+    struct FileInfo *styleCss;
+    struct FileInfo *mainJs;
+    struct FileInfo *vueJs;
+    struct FileInfo *mainHtml;
+
+    if (access( "/var/lib/cdocgen/main.html", F_OK) != -1) {
+        styleCss = file_get_contents("/var/lib/cdocgen/style.css");
+        mainJs = file_get_contents("/var/lib/cdocgen/main.js");
+        vueJs = file_get_contents("/var/lib/cdocgen/vue.js");
+        mainHtml = file_get_contents("/var/lib/cdocgen/main.html");
+    } else {
+        styleCss = file_get_contents("../resource/style.css");
+        mainJs = file_get_contents("../resource/main.js");
+        vueJs = file_get_contents("../resource/vue.js");
+        mainHtml = file_get_contents("../resource/main.html");
+    }
+    /*NEW_FILE_INFO(styleCss, "../resource/style.css");
     NEW_FILE_INFO(mainJs, "../resource/main.js");
     NEW_FILE_INFO(vueJs, "../resource/vue.js");
-    NEW_FILE_INFO(mainHtml, "../resource/main.html");
+    NEW_FILE_INFO(mainHtml, "../resource/main.html");*/
 
     // Parse document
     if (args_has_key(argList, "verbose")) {
