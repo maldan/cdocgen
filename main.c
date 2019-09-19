@@ -171,10 +171,24 @@ void generate_doc(char *fileName, struct String *documentData, char *document) {
 int main(int argc, char **argv) {
     MEMORY_INIT;
 
-    printf("Hello, World!\n");
+    // Parse args
+    EQU_ARGS(argList) = args_init(argc, argv);
+
+    // Include folder
+    if (!args_has_key(argList, "include")) {
+        printf("Key --include not found");
+        exit(1);
+    }
+
+    /*if (argc < 2) {
+        printf("Program require args");
+        return 1;
+    }*/
+    // printf("Hello, World!\n");
 
     // struct Vector *sas = file_search("../osoyan/", "^[a-zA-Z0-9]+\\.h$", FILE_INFO_INCLUDE_DATA);
-    struct Vector *sas = file_search("../osoyanlib/", "^[a-zA-Z0-9]+\\.h$", FILE_INFO_INCLUDE_DATA);
+    struct Vector *sas = file_search(args_get_key_value(argList, "include"), "^[a-zA-Z0-9]+\\.h$", FILE_INFO_INCLUDE_DATA);
+    printf("Scanning folder %s ...\n", args_get_key_value(argList, "include"));
     NEW_STRING(documentData);
     NEW_STRING(finalData);
 
@@ -184,10 +198,12 @@ int main(int argc, char **argv) {
     NEW_FILE_INFO(mainHtml, "../resource/main.html");
 
     // Parse document
-    for (size_t i = 0; i < sas->length; ++i) {
-        struct FileInfo *fileInfo = sas->list[i];
-        PRINT(fileInfo);
-        generate_doc(fileInfo->fileName, documentData, fileInfo->data);
+    if (args_has_key(argList, "verbose")) {
+        for (size_t i = 0; i < sas->length; ++i) {
+            struct FileInfo *fileInfo = sas->list[i];
+            PRINT(fileInfo);
+            generate_doc(fileInfo->fileName, documentData, fileInfo->data);
+        }
     }
 
     string_add(finalData, mainHtml->data, styleCss->data, vueJs->data, documentData->list, mainJs->data);
@@ -210,9 +226,14 @@ int main(int argc, char **argv) {
     string_add(documentData, "<script>\n%s\n</script>\n", mainJs->data);
     string_put(documentData, "\n</body></html>");*/
 
+    // Include folder
+    char *tempOut = "doc.html";
 
-
-    file_put_contents("doc.html", finalData->list, finalData->length);
+    if (args_has_key(argList, "out")) {
+        tempOut = args_get_key_value(argList, "out");
+    }
+    file_put_contents(tempOut, finalData->list, finalData->length);
+    printf("Docs generated to %s\n", tempOut);
 
     DESTROY_STRING(documentData);
     DESTROY_STRING(finalData);
@@ -221,6 +242,7 @@ int main(int argc, char **argv) {
     DESTROY_FILE_INFO(mainJs);
     DESTROY_FILE_INFO(vueJs);
     DESTROY_FILE_INFO(mainHtml);
+    args_free(argList);
 
     MEMORY_PRINT_STATE;
 
