@@ -7,8 +7,8 @@ set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} -DDEBUG)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 
-add_compile_options("--coverage")
-link_libraries("--coverage")
+# add_compile_options("--coverage")
+# link_libraries("--coverage")
 
 add_subdirectory(osoyanlib)
 add_executable(cdocgen main.c)
